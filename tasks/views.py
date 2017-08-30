@@ -29,13 +29,8 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
     model = Task
     success_url = reverse_lazy('task-list')
 
-    def get_context_data(self, **kwargs):
-        context = super(TaskUpdate, self).get_context_data(**kwargs)
-        context['user'] = self.request.user.pk
-        return context
-
     def get_queryset(self):
-        qs = super(TaskCreate, self).get_queryset().filter(
+        qs = super(TaskDelete, self).get_queryset().filter(
 	    user=self.request.user)
         return qs
 
