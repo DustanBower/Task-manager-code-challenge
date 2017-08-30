@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Task Details{% endblock %}
+
+{% block content %}
+  <h1>{{ object.title }}</h1>
+  <p>User: {{ object.user }}</p>
+  <p>Description: {{ object.description }}</p>
+
+  <a href="{% url 'task-update' object.pk %}">Update</a>
+  <a href="{% url 'task-delete' object.pk %}">Delete</a>
+{% endblock %}
